@@ -21,7 +21,7 @@
     }
   },
   "scripts": {
-    "build": "mkdir -p dist && vite build && tsc --emitDeclarationOnly --declaration --declarationMap",
+    "build": "mkdir -p dist && bunx bebopc build && vite build && tsc --emitDeclarationOnly --declaration --declarationMap",
     "clean": "rm -rf dist",
     "dev": "mkdir -p dist && vite build --watch",
     "test": "bunx vitest dev",
@@ -34,6 +34,7 @@
     "@commitlint/cli": "^19.6.0",
     "@commitlint/config-conventional": "^19.6.0",
     "@types/bun": "latest",
+    "bebop-tools": "^3.1.3",
     "lefthook": "^1.8.4",
     "turbo": "^2.3.2",
     "vite": "^6.0.0",
@@ -41,5 +42,8 @@
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "bebop": "^3.1.3"
   }
 }

@@ -1,0 +1,12 @@
+{
+  "include": ["src/internal/proto/**/*.bop"],
+  "exclude": ["node_modules"],
+  "generators": {
+    "ts": {
+      "outFile": "./src/internal/proto/transaction.ts"
+    }
+  },
+  "watchOptions": {
+    "excludeDirectories": ["node_modules"]
+  }
+}

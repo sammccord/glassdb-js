@@ -1,0 +1,43 @@
+enum Status {
+    DETAULT = 0;
+    COMMITTED = 1;
+    ABORTED = 2;
+    PENDING = 3;
+}
+
+struct TransactionLog {
+  date timestamp;
+  Status status;
+  CollectionWrites[] writes;
+}
+
+struct CollectionWrites {
+  string prefix;
+  Write[] writes;
+  CollectionLocks locks;
+}
+
+message Write {
+  1 -> string suffix;
+  2 -> byte[] prev_tid;
+  3 -> byte[] value;
+  4 -> bool deleted;
+}
+
+enum LockType {
+  UNKNOWN = 0;
+  NONE = 1;
+  READ = 2;
+  WRITE = 3;
+  CREATE = 4;
+}
+
+struct CollectionLocks {
+  LockType collection_lock;
+  Lock[] locks;
+}
+
+struct Lock {
+  string suffix;
+  LockType lock_type;
+}
