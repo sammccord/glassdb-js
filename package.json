@@ -1,0 +1,45 @@
+{
+  "name": "glassdb",
+  "version": "0.0.0-alpha.0",
+  "type": "module",
+  "files": ["dist"],
+  "repository": "https://github.com/sammccord/glassdb-node",
+  "author": "Sam McCord<sam.mccord@protonmail.com>",
+  "access": "public",
+  "private": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "typings": "./dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js",
+      "node": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "mkdir -p dist && vite build && tsc --emitDeclarationOnly --declaration --declarationMap",
+    "clean": "rm -rf dist",
+    "dev": "mkdir -p dist && vite build --watch",
+    "test": "bunx vitest dev",
+    "test:ci": "CI=true bunx vitest --coverage"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@changesets/changelog-github": "^0.5.0",
+    "@changesets/cli": "^2.27.10",
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@types/bun": "latest",
+    "lefthook": "^1.8.4",
+    "turbo": "^2.3.2",
+    "vite": "^6.0.0",
+    "vitest": "^2.1.6"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
